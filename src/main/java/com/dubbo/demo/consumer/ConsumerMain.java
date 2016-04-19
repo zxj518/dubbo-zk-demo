@@ -12,10 +12,15 @@ public class ConsumerMain {
         classPathXmlApplicationContext.start();
 
         HelloService helloService = (HelloService) classPathXmlApplicationContext.getBean("helloService");
-        String world = helloService.hello("World");
-
-        System.out.println("=====================================");
-        System.out.println(world);
-        System.out.println("=====================================");
+        long start = System.currentTimeMillis();
+        System.out.println("start time:" + start);
+        for(int i=0;i<100000;i++){
+        	System.out.println("start to =====================================:" + i);
+        	String world = helloService.hello("World");
+        	
+            System.out.println(world);
+            System.out.println("end to =====================================" + i);
+        }
+        System.out.println("use time:" +( System.currentTimeMillis() - start));
     }
 }

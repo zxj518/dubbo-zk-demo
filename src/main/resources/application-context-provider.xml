@@ -7,12 +7,13 @@
 	   ">
 	<dubbo:application name="ws-demo" />
 
-	<dubbo:registry address="N/A" />
+	<dubbo:registry  protocol="zookeeper" address="172.16.88.65:2181,172.16.88.66:2181,172.16.88.68:2181" />
 	
 	<dubbo:protocol name="http" port="8080" server="servlet" contextpath="http" />
-
+   <dubbo:protocol name="dubbo" port="18080" />
+   
 	<bean id="helloService" class="com.dubbo.demo.impl.HelloServiceImpl"/>
 
 	<dubbo:service interface="com.dubbo.demo.HelloService" version="1.0.0"
-				   protocol="http" ref="helloService"/>
+				   protocol="dubbo,http" ref="helloService"/>
 </beans>

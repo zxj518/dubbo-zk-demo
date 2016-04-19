@@ -7,8 +7,9 @@
 	   ">
 	<dubbo:application name="ws-demo" />
 
-	<dubbo:registry address="N/A" />
+	<dubbo:registry  protocol="zookeeper" address="172.16.88.65:2181,172.16.88.66:2181,172.16.88.68:2181" />
 
-	<dubbo:reference id="helloService" interface="com.dubbo.demo.HelloService" version="1.0.0"
-				   url="http://127.0.0.1:8080/http/com.dubbo.demo.HelloService" />
+	<dubbo:reference id="helloService" interface="com.dubbo.demo.HelloService" version="1.0.0" protocol="dubbo"/>
+	<!--  dubbo:reference id="helloService" interface="com.dubbo.demo.HelloService" version="1.0.0"
+				   url="http://127.0.0.1:8080/http/com.dubbo.demo.HelloService" /-->
 </beans>
